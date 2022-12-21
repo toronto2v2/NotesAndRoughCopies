@@ -56,7 +56,7 @@ class WhoAmI extends Component{
         const {name, surname, link} = this.props;
         const {position, years} = this.state
         return(
-            <div statusOfWrapper>
+            <div  className = 'statusOfWrapper'>
                 <Button  utton onClick={this.nextYear}>{this.state.text}</Button>
                 <Header>My name is {name}, surname: {surname}, age: {years}, position: {position}</Header>
                 <a href={link}>My profile</a>
@@ -78,12 +78,24 @@ const Wrapper = styled.div`
 
 `
 
+const DynamicGreating = (props) =>{
+    return (
+        <div style = {{width: '300px', border: '2px solid black', marginTop: '25px', backgroundColor: props.color, height:'50px'}}>
+            {props.children}
+        </div>
+    )
+}
+
+
 function App() {
     return(
         <Wrapper>
             <WhoAmI name = 'Misha' surname = 'Yevrii' link = 'facebook.com'/>
             <WhoAmI name = 'Anya' surname = 'Yevrii' link = 'facebook.com'/>
 
+            <DynamicGreating color = 'green'>
+                <h2>zaluop</h2>
+            </DynamicGreating>
         </Wrapper>
     )
 }
